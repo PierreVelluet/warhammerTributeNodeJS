@@ -77,6 +77,20 @@ app.get('/api/monsters', (req, res) => {
     });
   });
 
+  app.get('/api/areas', (req, res) => {
+
+    connection.query('SELECT * FROM areas', (err, results) => {
+  
+      if (err) {
+
+        res.status(500).send('Erreur lors de la récupération des areas');
+      } else {
+
+        res.json(results);
+      }
+    });
+  });
+
 
 
 
